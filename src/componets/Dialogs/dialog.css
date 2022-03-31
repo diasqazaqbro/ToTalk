@@ -1,0 +1,15 @@
+/* Dialogs */
+
+.dialogs {
+   display: flex;
+ }
+ 
+ .dialogs__list {
+   width: 20%;
+   padding: 10px;
+ }
+ 
+ .dialog__messages {
+   width: 60%;
+   padding: 20px;
+ }

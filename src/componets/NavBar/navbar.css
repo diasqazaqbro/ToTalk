@@ -1,0 +1,31 @@
+.navbar {
+   grid-area: n;
+}
+
+.nav {
+   display: flex;
+   flex-direction: column;
+   margin-left: 15px;
+}
+
+.nav__link {
+   padding: 10px 5px;
+   margin-bottom: 10px;
+   border-radius: 15px;
+   font-weight: 500;
+   font-size: 24px;
+   line-height: 29px;
+   text-decoration: none;
+   color: black;
+}
+
+.nav__link:hover {
+   background: rgba(152, 152, 152, 0.21);
+   color: #4E6E9D;
+}
+
+.nav__link img {
+   width: 28px;
+   margin-right: 10px;
+}
+
