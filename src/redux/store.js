@@ -32,6 +32,9 @@ let store = {
             { name: 'Артем', id: 6 },
          ],
       },
+      navBar: {
+
+      }
    },
 
    _callSubscriber() {
