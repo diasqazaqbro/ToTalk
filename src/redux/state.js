@@ -1,3 +1,7 @@
+import dialogsReducer from "./dialogsReducer"
+import navbarReducer from "./navbarReducer"
+import profileReducer from "./profileReducer"
+
 let store = {
    _state: {
       profilePage: {
@@ -18,6 +22,7 @@ let store = {
             { message: 'wow, its cool', id: 1 },
             { message: 'i know :)', id: 1 },
          ],
+         newMessageText: 'ss',
          dialog: [
             { name: 'Диас', id: 1 },
             { name: 'Дарын', id: 2 },
@@ -28,32 +33,28 @@ let store = {
          ],
       },
    },
-   getState() {
-      return this._state
-   },
+
    _callSubscriber() {
       console.log('state was changed')
    },
-   addPost(newPostMessage) {
-      let newPost = {
-         id: 5,
-         message: newPostMessage
-      }
-      this._state.profilePage.posts.push(newPost)
-      this._state.profilePage.newPostText = ''
-      this._callSubscriber(this._state)
+
+   getState() {
+      return this._state
    },
-   updateNewPostText(newText) {
-      this._state.profilePage.newPostText = newText
-      this._callSubscriber(this._state)
-   },
+
    subscribe(observer) {
       this._callSubscriber = observer
-   }
+   },
+
+   dispatch(action) {
+      this._state.profilePage = profileReducer(this._state.profilePage, action)
+      this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
+      this._state.navBar = navbarReducer(this._state.navBar, action)
+      this._callSubscriber(this._state)
+   },
 
 }
 
-// window.state = state
 export default store
 
 
@@ -65,7 +66,7 @@ export default store
 //             id: 5,
 //             message: (addGulF)
 //          }
-//          state.profilePage.posts.push(newPost)
+//          store._state.profilePage.posts.push(newPost)
 //       }
 //       addGul(x + ' - 7 = ' + (x - 7))
 //       x -= 7

@@ -1,15 +1,16 @@
 import React from 'react'
 import PostsItem from './PostsItem'
+import { updateNewPostTextActionCreator, addPostActionCreator } from '../../../redux/profileReducer'
 const ProfileWall = (props) => {
    let postsElement = props.posts.map(p => <PostsItem message={p.message} />)
    let newPostElement = React.createRef()
+
    let addPost = () => {
-      let text = newPostElement.current.value
-      props.addPost(text)
+      props.dispatch(addPostActionCreator())
    }
    let onPostChange = () => {
-      let textPost = newPostElement.current.value
-      props.updateNewPostText()
+      let text = newPostElement.current.value
+      props.dispatch(updateNewPostTextActionCreator(text))
    }
    return (
       <div className="profile__wall">

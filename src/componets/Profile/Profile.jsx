@@ -15,7 +15,7 @@ const Profile = (props) => {
                      <div className="profile__nameid">@itsJoji</div>
                   </div>
                </div>
-               <ProfileWall updateNewPostText={props.updateNewPostText} newPost={props.state.newPostText} addPost={props.addPost} posts={props.state.posts} />
+               <ProfileWall newPost={props.state.newPostText} dispatch={props.dispatch} posts={props.state.posts} />
             </div>
          </div>
       </div>
