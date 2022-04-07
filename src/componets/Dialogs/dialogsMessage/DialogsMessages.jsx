@@ -1,18 +1,17 @@
 import DialogItem from "./DialogItem";
 import React from "react";
-import { updateNewMessageTextActionCreator, addMessageActionCreator } from '../../redux/dialogsReducer'
 
 const DialogsMessages = (props) => {
    let newMessageElement = React.createRef()
    let messageElement = props.message.map(m => <DialogItem message={m.message} />)
 
    let addMessage = () => {
-      props.dispatch(addMessageActionCreator())
+      props.onAddMessage()
    }
 
    let onChangeMessage = () => {
       let text = newMessageElement.current.value
-      props.dispatch(updateNewMessageTextActionCreator(text))
+      props.updateNewMessageText(text)
    }
 
    return (

@@ -15,9 +15,9 @@ const App = (props) => {
         <NavBar />
         <div className="content">
           <Routes>
-            <Route path='/profile/' exact element={<Profile dispatch={props.dispatch} state={props.state.profilePage} />} />
-            <Route path='' exact element={<Profile dispatch={props.dispatch} state={props.state.profilePage} />} />
-            <Route exact path='/dialogs' element={<Dialogs dispatch={props.dispatch} state={props.state.messagesPage} />} />
+            <Route path='/profile/' exact element={<Profile store={props.store} />} />
+            {/* <Route path='' exact element={<Profile store={props.store} />} /> */}
+            <Route exact path='/dialogs' element={<Dialogs store={props.store} />} />
           </Routes>
         </div>
       </div>

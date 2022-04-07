@@ -7,7 +7,7 @@ let initialState = {
       { message: 'hi, why are you?', id: 1 },
       { message: 'its my first', id: 2 }
    ],
-   newPostText: ''
+   newPostText: 'sss'
 }
 
 const profileReducer = (state = initialState, action) => {

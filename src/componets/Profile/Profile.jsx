@@ -1,9 +1,9 @@
 import ava from '../../content/ava.jpg'
 import back from '../../content/back.jpeg'
-import ProfileWall from "./Posts/ProfileWall";
+// import ProfileWall from "./Posts/ProfileWall";
+import ProfileWallContainer from './Posts/ProfileWallContainer';
 import './profile.css'
 const Profile = (props) => {
-
    return (
       <div className='profile'>
          <img className="profile__background" src={back} />
@@ -15,7 +15,7 @@ const Profile = (props) => {
                      <div className="profile__nameid">@itsJoji</div>
                   </div>
                </div>
-               <ProfileWall newPost={props.state.newPostText} dispatch={props.dispatch} posts={props.state.posts} />
+               <ProfileWallContainer store={props.store} />
             </div>
          </div>
       </div>

@@ -1,10 +1,10 @@
-import DialogList from "./DialogsList";
-import DialogsMessages from "./DialogsMessages";
+import DialogListContainer from "./dialogList/DialogsListContainer";
+import DialogsMessagesContainer from "./dialogsMessage/DialogsMessagesContainer";
 const Dialogs = (props) => {
    return (
       <div className="dialogs">
-         <DialogList dialog={props.state.dialog} />
-         <DialogsMessages newMessage={props.state.newMessageText} dispatch={props.dispatch} message={props.state.message} />
+         <DialogListContainer store={props.store} />
+         <DialogsMessagesContainer store={props.store} />
       </div>
    )
 }

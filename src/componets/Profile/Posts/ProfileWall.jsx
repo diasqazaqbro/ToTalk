@@ -1,16 +1,15 @@
 import React from 'react'
 import PostsItem from './PostsItem'
-import { updateNewPostTextActionCreator, addPostActionCreator } from '../../../redux/profileReducer'
 const ProfileWall = (props) => {
    let postsElement = props.posts.map(p => <PostsItem message={p.message} />)
    let newPostElement = React.createRef()
 
-   let addPost = () => {
-      props.dispatch(addPostActionCreator())
+   let onAddPost = () => {
+      props.onAddPost()
    }
    let onPostChange = () => {
       let text = newPostElement.current.value
-      props.dispatch(updateNewPostTextActionCreator(text))
+      props.updateNewPostText(text)
    }
    return (
       <div className="profile__wall">
@@ -20,7 +19,7 @@ const ProfileWall = (props) => {
          </div>
          <div className="profile__area">
             <textarea value={props.newPost} cols="61" rows="3" wrap='soft' onChange={onPostChange} maxLength={140} accessKey='tab' placeholder='Что у вас нового?' ref={newPostElement} />
-            <button type='' onClick={addPost}>Кнопка</button>
+            <button type='' onClick={onAddPost}>Кнопка</button>
          </div>
          <div className="profile__posts">
             {postsElement}

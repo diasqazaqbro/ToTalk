@@ -12,7 +12,7 @@ const initialState = {
       { message: 'wow, its cool', id: 1 },
       { message: 'i know :)', id: 1 },
    ],
-   newMessageText: 'ss',
+   newMessageText: 'new',
    dialog: [
       { name: 'Диас', id: 1 },
       { name: 'Дарын', id: 2 },
