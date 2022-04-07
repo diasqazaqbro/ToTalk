@@ -3,7 +3,7 @@ import React from "react";
 
 const DialogsMessages = (props) => {
    let newMessageElement = React.createRef()
-   let messageElement = props.message.map(m => <DialogItem message={m.message} />)
+   let messageElement = props.message.map(m => <DialogItem message={m.message} key={m.id} />)
 
    let addMessage = () => {
       props.onAddMessage()

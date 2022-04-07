@@ -1,7 +1,7 @@
 import React from 'react'
 import PostsItem from './PostsItem'
 const ProfileWall = (props) => {
-   let postsElement = props.posts.map(p => <PostsItem message={p.message} />)
+   let postsElement = props.posts.map(p => <PostsItem message={p.message} key={p.id} />)
    let newPostElement = React.createRef()
 
    let onAddPost = () => {
