@@ -1,7 +1,12 @@
+import { connect } from "react-redux"
 import DialogList from "./DialogsList"
-const DialogListContainer = (props) => {
 
-   return (<DialogList dialog={props.store.getState().messagesPage.dialog} />)
+let mapStateToProps = (state) => {
+   return {
+      dialog: state.messagesPage.dialog,
+   }
 }
+
+let DialogListContainer = connect(mapStateToProps)(DialogList)
 
 export default DialogListContainer
