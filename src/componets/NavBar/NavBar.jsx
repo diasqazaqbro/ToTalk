@@ -13,6 +13,7 @@ const NavBar = () => {
             <NavLink to="/home" className="nav__link"><img src={home} alt="" />Главная</NavLink>
             <NavLink to="/dialogs" className="nav__link"><img src={chat} alt="" />Мессенджер</NavLink>
             <NavLink to="/friends" className="nav__link"><img src={friends} alt="" />Друзья</NavLink>
+            <NavLink to="/users" className="nav__link"><img src={friends} alt="" />Найти друзей</NavLink>
             <NavLink to="/notifiactions" className="nav__link"><img src={notif} alt="" />Уведомления</NavLink>
             <NavLink to="/profile" className="nav__link"><img src={profile} alt="" />Профиль</NavLink>
          </nav>
