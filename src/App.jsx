@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import Header from './componets/Header/Header';
-import Profile from './componets/Profile/Profile';
 import { Routes, Route } from "react-router-dom";
 import Dialogs from './componets/Dialogs/Dialogs';
 import NavBar from './componets/NavBar/NavBar';
 import UsersContainer from './componets/Users/UsersContainer';
+import ProfileContainer from './componets/Profile/ProfileContainer';
 
 const App = (props) => {
 
@@ -16,10 +16,10 @@ const App = (props) => {
         <NavBar />
         <div className="content">
           <Routes>
-            <Route path='/profile/' exact element={<Profile store={props.store} />} />
+            <Route path='/profile/:userId' element={<ProfileContainer />} />
+            <Route path='/profile' element={<ProfileContainer />} />
             <Route path='/users' exact element={<UsersContainer />} />
-            <Route path='' exact element={<Profile store={props.store} />} />
-            <Route exact path='/dialogs' element={<Dialogs store={props.store} />} />
+            <Route exact path='/dialogs' element={<Dialogs />} />
           </Routes>
         </div>
       </div>

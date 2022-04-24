@@ -1,9 +1,9 @@
 import React from "react"
 import { connect } from "react-redux"
-import { followActionCreater, setUsersActionCreate, unfollowActionCreater, setCurrentPageActionCreate, setTotalUsersCountActionCreate, setIsFetchingActionCreate } from "../../redux/usersReducer"
+import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, setIsFetching } from "../../redux/usersReducer"
 import Users from './Users'
-import loading from '../../content/loading.svg'
 import * as axios from 'axios'
+import Preloader from "../common/Preloader"
 
 class UsersAPI extends React.Component {
    componentDidMount() {
@@ -28,7 +28,8 @@ class UsersAPI extends React.Component {
    render() {
 
       return <>
-         {this.props.isFetching ? <img src={loading} /> : null}
+         {this.props.isFetching ?
+            <Preloader /> : null}
          {this.props.isFetching === false ? <Users
             pageSize={this.props.pageSize}
             totalUsersCount={this.props.totalUsersCount}
@@ -56,16 +57,12 @@ const mapStateToProps = (state) => {
 
 }
 
-const mapDispatchToProps = (dispatch) => {
-   return {
-      follow: (userId) => { dispatch(followActionCreater(userId)) },
-      unfollow: (userId) => { dispatch(unfollowActionCreater(userId)) },
-      setUsers: (users) => { dispatch(setUsersActionCreate(users)) },
-      setCurrentPage: (pageNumber) => { dispatch(setCurrentPageActionCreate(pageNumber)) },
-      setTotalUsersCount: (totalCount) => { dispatch(setTotalUsersCountActionCreate(totalCount)) },
-      setIsFetching: (isFetching) => { dispatch(setIsFetchingActionCreate(isFetching)) }
-   }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPI)
+export default connect(mapStateToProps,
+   {
+      follow,
+      unfollow,
+      setUsers,
+      setCurrentPage,
+      setTotalUsersCount,
+      setIsFetching
+   })(UsersAPI)

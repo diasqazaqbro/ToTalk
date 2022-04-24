@@ -5,8 +5,8 @@ const PostsItem = (props) => {
          <div className="post__info">
             <img src={ava} alt="" className="post__ava" />
             <div className="post__stat">
-               <div className="post__name">Joji</div>
-               <div className="post__line">запостил пост 15 минут назад</div>
+               <div className="post__name">diasqazaqbro</div>
+               <div className="post__line">запостил пост ??? минут назад</div>
                <div className="post__item">
                   <p>{props.message}</p>
                </div>

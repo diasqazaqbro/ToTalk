@@ -1,32 +1,22 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const SET_USER_PROFILE = 'SET-USER-PROFILE'
 
 
 let initialState = {
-   posts: [
-      { message: 'hi, why are you?', id: 1 },
-      { message: 'its my first', id: 2 }
-   ],
-   newPostText: 'sss'
+   posts: [],
+   newPostText: '',
+   profile: null
 }
 
 const profileReducer = (state = initialState, action) => {
    switch (action.type) {
-      case ADD_POST: {
-
-         return {
-            ...state,
-            newPostText: '',
-            posts: [...state.posts, { id: 5, message: state.newPostText }]
-         }
-      }
+      case ADD_POST:
+         return { ...state, newPostText: '', posts: [...state.posts, { id: 5, message: state.newPostText }] }
       case UPDATE_NEW_POST_TEXT:
-
-         return {
-            ...state,
-            newPostText: action.newText
-
-         }
+         return { ...state, newPostText: action.newText }
+      case SET_USER_PROFILE:
+         return { ...state, profile: action.profile }
       default:
          return state
    }
@@ -42,6 +32,12 @@ export const updateNewPostTextActionCreator = (text) => {
    return {
       type: UPDATE_NEW_POST_TEXT,
       newText: text
+   }
+}
+
+export const setUserProfile = (profile) => {
+   return {
+      type: SET_USER_PROFILE, profile
    }
 }
 
