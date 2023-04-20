@@ -2,9 +2,6 @@ import { connect } from 'react-redux'
 import { updateNewPostTextActionCreator, addPostActionCreator } from '../../../redux/profileReducer'
 import ProfileWall from './ProfileWall'
 
-
-
-
 const mapStateToProps = (state) => {
    return {
       posts: state.profilePage.posts,
@@ -21,7 +18,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const ProfileWallContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileWall)
-
-
 
 export default ProfileWallContainer;
