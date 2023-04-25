@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ToTalk/static/css/main.f95915dd.css",
+    "main.js": "/ToTalk/static/js/main.903151a5.js",
+    "static/js/496.cae0a888.chunk.js": "/ToTalk/static/js/496.cae0a888.chunk.js",
+    "static/media/ava.jpg": "/ToTalk/static/media/ava.dfeccdc02322a06d3127.jpg",
+    "static/media/back.jpeg": "/ToTalk/static/media/back.5482a268853d55b70cd9.jpeg",
+    "static/media/friends.svg": "/ToTalk/static/media/friends.249b913ac10967cf87c979a29d3666d6.svg",
+    "static/media/notif.svg": "/ToTalk/static/media/notif.77e4d5b3224cd4df5f1e975ac4e0fdc5.svg",
+    "index.html": "/ToTalk/index.html",
+    "static/media/home.svg": "/ToTalk/static/media/home.238d9bc6e032d011f1816051996ea201.svg",
+    "static/media/search.svg": "/ToTalk/static/media/search.552248cfe3bd3c3407f987244978bd48.svg",
+    "static/media/chat.svg": "/ToTalk/static/media/chat.8046c3a7e8fd9acc0f18398b196b5996.svg",
+    "static/media/profile.svg": "/ToTalk/static/media/profile.bfe745f0b7784eb4fd6508cee62463d7.svg",
+    "main.f95915dd.css.map": "/ToTalk/static/css/main.f95915dd.css.map",
+    "main.903151a5.js.map": "/ToTalk/static/js/main.903151a5.js.map",
+    "496.cae0a888.chunk.js.map": "/ToTalk/static/js/496.cae0a888.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f95915dd.css",
+    "static/js/main.903151a5.js"
+  ]
+}
