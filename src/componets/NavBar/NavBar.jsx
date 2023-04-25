@@ -15,6 +15,7 @@ const NavBar = () => {
             <NavLink to="/friends" className="nav__link"><img src={friends} alt="" />Друзья</NavLink>
             <NavLink to="/notifiactions" className="nav__link"><img src={notif} alt="" />Уведомления</NavLink>
             <NavLink to="/profile" className="nav__link"><img src={profile} alt="" />Профиль</NavLink>
+            <NavLink to="/users" className="nav__link"><img src={friends} alt="" />Найти пользователей</NavLink>
          </nav>
       </div>
    )
