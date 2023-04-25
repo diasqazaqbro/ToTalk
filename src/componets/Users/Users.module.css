@@ -68,3 +68,8 @@ button {
 
   color: #4e6e9d;
 }
+
+.selectedPage {
+  font-weight: bold;
+  color: rgb(255, 0, 102);
+}
