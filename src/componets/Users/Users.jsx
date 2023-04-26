@@ -1,12 +1,13 @@
-import React from "react"
-import s from './Users.module.css'
+import React from "react";
+import s from "./Users.module.css";
+import {NavLink} from 'react-router-dom'
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  
+
   return (
     <div className={s.main}>
       <div className={s.count}>
@@ -30,15 +31,17 @@ const Users = (props) => {
         {props.users.map((u) => (
           <div className={s.item}>
             <div className={s.card}>
-              {u.photos.small ? (
-                <img className={s.img} src={u.photos.small} alt="" />
-              ) : (
-                <img
-                  className={s.img}
-                  src="https://avatars.mds.yandex.net/i?id=b0880d8a436d0fa42f04aca0768dfd35-5372116-images-thumbs&n=13"
-                  alt=""
-                />
-              )}
+              <NavLink to={"/profile/" + u.id}>
+                {u.photos.small ? (
+                  <img className={s.img} src={u.photos.small} alt="" />
+                ) : (
+                  <img
+                    className={s.img}
+                    src="https://avatars.mds.yandex.net/i?id=b0880d8a436d0fa42f04aca0768dfd35-5372116-images-thumbs&n=13"
+                    alt=""
+                  />
+                )}
+              </NavLink>
 
               <div className={s.profile}>
                 <div className={s.name}>{u.name}</div>
