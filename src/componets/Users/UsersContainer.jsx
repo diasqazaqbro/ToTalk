@@ -17,7 +17,7 @@ class UsersContainer extends React.Component {
     this.props.toggleIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true,}
       )
       .then((response) => {
         this.props.toggleIsFetching(false);
@@ -31,7 +31,7 @@ class UsersContainer extends React.Component {
     this.props.setCurrnetPage(p);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`, {withCredentials: true,}
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
@@ -52,6 +52,7 @@ class UsersContainer extends React.Component {
             currentPage={this.props.currentPage}
             users={this.props.users}
             follow={this.props.follow}
+            unfollow={this.props.unfollow}
           />
         )}
       </>
@@ -74,5 +75,5 @@ export default connect(mapStateToProps, {
   setUsers,
   setCurrnetPage,
   setTotalCount,
-  toggleIsFetching
+  toggleIsFetching,
 })(UsersContainer);
