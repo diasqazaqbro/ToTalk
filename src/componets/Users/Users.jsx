@@ -6,6 +6,7 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+  
   return (
     <div className={s.main}>
       <div className={s.count}>
