@@ -20,3 +20,7 @@ export const deleteFollow = (userId) => {
 export const postFollow = (userId) => {
   return instance.post(`follow/` + userId);
 };
+
+export const getProfile = (userId) => {
+  return instance.get(`profile/${userId}`)
+}

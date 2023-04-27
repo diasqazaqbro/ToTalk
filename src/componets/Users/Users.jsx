@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./Users.module.css";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import { deleteFollow, postFollow } from "../../api/api";
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalCount / props.pageSize);
