@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Users.module.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import { deleteFollow } from "../../api/api";
+import { deleteFollow, postFollow } from "../../api/api";
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalCount / props.pageSize);
   let pages = [];
@@ -77,23 +77,12 @@ const Users = (props) => {
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
                     props.toggleFollowingInProgress(true, u.id);
-                    axios
-                      .post(
-                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                        {},
-                        {
-                          withCredentials: true,
-                          headers: {
-                            "API-KEY": "4a415add-87af-4e15-8373-1f7a1706053b",
-                          },
-                        }
-                      )
-                      .then((response) => {
-                        if (response.data.resultCode === 0) {
-                          props.follow(u.id);
-                        }
-                        props.toggleFollowingInProgress(false, u.id);
-                      });
+                    postFollow(u.id).then((response) => {
+                      if (response.data.resultCode === 0) {
+                        props.follow(u.id);
+                      }
+                      props.toggleFollowingInProgress(false, u.id);
+                    });
                   }}
                 >
                   Follow
