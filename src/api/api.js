@@ -14,3 +14,8 @@ export const getUsers = (currentPage, pageSize) => {
     )
     .then((response) => response.data);
 };
+
+
+export const deleteFollow = (userId) => {
+  return instance.delete('follow/' + userId)
+}
