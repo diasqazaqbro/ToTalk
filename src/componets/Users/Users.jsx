@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Users.module.css";
 import { NavLink } from "react-router-dom";
-import { deleteFollow, postFollow } from "../../api/api";
+
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalCount / props.pageSize);
   let pages = [];
@@ -60,13 +60,7 @@ const Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingInProgress(true, u.id);
-                    deleteFollow(u.id).then((response) => {
-                      if (response.data.resultCode === 0) {
-                        props.unfollow(u.id);
-                      }
-                      props.toggleFollowingInProgress(false, u.id);
-                    });
+                    props.unfollowThunkCreator(u.id);
                   }}
                 >
                   UnFollow
@@ -75,13 +69,7 @@ const Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingInProgress(true, u.id);
-                    postFollow(u.id).then((response) => {
-                      if (response.data.resultCode === 0) {
-                        props.follow(u.id);
-                      }
-                      props.toggleFollowingInProgress(false, u.id);
-                    });
+                    props.followThunkCreator(u.id);
                   }}
                 >
                   Follow

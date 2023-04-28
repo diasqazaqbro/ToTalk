@@ -13,12 +13,12 @@ const Profile = (props) => {
       <div className="container">
         <div className="profile__grid">
           <div className="profile__about">
-            <img src={ava} alt="" className="profile__avatar" />
+            <img src={props.profile.photos.large} alt="" className="profile__avatar" />
             <div className="profile__info">
               <div className="profile__nameid">{props.profile.userId}</div>
             </div>
           </div>
-          <ProfileWallContainer />
+          <ProfileWallContainer props={props.profile}/>
         </div>
       </div>
     </div>

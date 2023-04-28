@@ -22,5 +22,5 @@ export const postFollow = (userId) => {
 };
 
 export const getProfile = (userId) => {
-  return instance.get(`profile/${userId}`)
+  return instance.get(`profile/` + userId)
 }
