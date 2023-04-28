@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 const instance = axios.create({
   withCredentials: true,
@@ -22,5 +23,8 @@ export const postFollow = (userId) => {
 };
 
 export const getProfile = (userId) => {
-  return instance.get(`profile/` + userId)
-}
+  return instance.get(`profile/` + userId);
+};
+export const getAuth = () => {
+  return instance.get(`auth/me`);
+};

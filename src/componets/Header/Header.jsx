@@ -10,7 +10,7 @@ const Header = (props) => {
           <div className="header__logo">ToTalk</div>
           <HeaderSearch />
           {props.isAuth ? (
-            <HeaderProfile />
+            props.login
           ) : (
             <NavLink to="/login">Login</NavLink>
           )}
@@ -20,3 +20,4 @@ const Header = (props) => {
   );
 };
 export default Header;
+{/* <HeaderProfile /> */}
