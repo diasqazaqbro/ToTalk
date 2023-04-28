@@ -6,12 +6,13 @@ import {
   toggleFollowingInProgress,
   getUsersThunkCreator,
   followThunkCreator,
-  unfollowThunkCreator
+  unfollowThunkCreator,
 } from "../../redux/usersReducer";
 import React from "react";
 import Users from "./Users";
 import Preloader from "../UI/Preloader/Preloader";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -61,13 +62,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-let withRedirect = withAuthRedirect(UsersContainer)
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrnetPage,
-  toggleFollowingInProgress,
-  getUsersThunkCreator,
-  followThunkCreator,
-  unfollowThunkCreator
-})(withRedirect);
+export default compose(
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setCurrnetPage,
+    toggleFollowingInProgress,
+    getUsersThunkCreator,
+    followThunkCreator,
+    unfollowThunkCreator,
+  }),
+  withAuthRedirect
+)(UsersContainer);

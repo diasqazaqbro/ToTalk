@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 let mapStateToPropsForRedirect = (state) => ({
-    isAuth: state.auth.isAuth,
-  });
+  isAuth: state.auth.isAuth,
+});
 export const withAuthRedirect = (Component) => {
   class RedirectComponent extends React.Component {
     render() {
@@ -12,6 +12,9 @@ export const withAuthRedirect = (Component) => {
     }
   }
 
-  let ConnectedmapStateToProps = connect(mapStateToPropsForRedirect, {})(RedirectComponent)
+  let ConnectedmapStateToProps = connect(
+    mapStateToPropsForRedirect,
+    {}
+  )(RedirectComponent);
   return ConnectedmapStateToProps;
 };
