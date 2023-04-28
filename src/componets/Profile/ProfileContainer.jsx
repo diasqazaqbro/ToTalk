@@ -3,14 +3,14 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getProfileThunkCreator } from "../../redux/profileReducer";
-
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.router.params.userId;
     if (!userId) {
       userId = 23620;
     }
-    this.props.getProfileThunkCreator(userId)
+    this.props.getProfileThunkCreator(userId);
   }
 
   render() {
@@ -18,9 +18,10 @@ class ProfileContainer extends React.Component {
   }
 }
 
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  isAuth: state.auth.isAuth
 });
 
 // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
@@ -35,5 +36,5 @@ function withRouter(Component) {
   return ComponentWithRouterProp;
 }
 export default connect(mapStateToProps, { getProfileThunkCreator })(
-  withRouter(ProfileContainer)
+  withRouter(AuthRedirectComponent)
 );

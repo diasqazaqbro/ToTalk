@@ -1,12 +1,9 @@
-import ava from "../../content/ava.jpg";
 import back from "../../content/back.jpeg";
 import Preloader from "../UI/Preloader/Preloader";
 import ProfileWallContainer from "./Posts/ProfileWallContainer";
-import { Navigate } from "react-router-dom";
 
 import "./profile.css";
 const Profile = (props) => {
-  if (props.isAuth === false) return <Navigate to={"/login"} />;
   if (!props.profile) {
     return <Preloader />;
   }
