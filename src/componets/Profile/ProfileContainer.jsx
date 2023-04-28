@@ -20,6 +20,7 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
+  isAuth: state.auth.isAuth
 });
 
 // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
