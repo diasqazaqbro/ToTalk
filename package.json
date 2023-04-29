@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://diasqazaqbro.github.io/ToTalk",
   "dependencies": {
+    "antd": "^5.4.6",
     "axios": "^1.3.6",
     "cra-template": "1.1.3",
     "gh-pages": "^5.0.0",

@@ -1,5 +1,3 @@
-import HeaderProfile from "./HeaderProfile";
-import HeaderSearch from "./HeaderSearch";
 import "./header.css";
 import { NavLink } from "react-router-dom";
 const Header = (props) => {
@@ -7,8 +5,7 @@ const Header = (props) => {
     <header className="header">
       <div className="container">
         <div className="header__header">
-          <div className="header__logo">ToTalk</div>
-          <HeaderSearch />
+          {/* <div className="header__logo">ToTalk</div> */}
           {props.isAuth ? (
             props.login
           ) : (
@@ -20,4 +17,4 @@ const Header = (props) => {
   );
 };
 export default Header;
-{/* <HeaderProfile /> */}
+ 
