@@ -4,6 +4,25 @@ import ProfileWallContainer from "./Posts/ProfileWallContainer";
 
 import "./profile.css";
 const Profile = (props) => {
+  const photos = () => {
+    if (props.profile.photos.large === null) {
+      return (
+        <img
+          src={'https://avatars.mds.yandex.net/i?id=b0880d8a436d0fa42f04aca0768dfd35-5372116-images-thumbs&n=13'}
+          alt=""
+          className="profile__avatar"
+        />
+      );
+    } else {
+      return (
+        <img
+          src={props.profile.photos.large}
+          alt=""
+          className="profile__avatar"
+        />
+      );
+    }
+  };
   if (!props.profile) {
     return <Preloader />;
   }
@@ -13,11 +32,7 @@ const Profile = (props) => {
       <div className="container">
         <div className="profile__grid">
           <div className="profile__about">
-            <img
-              src={props.profile.photos.large}
-              alt=""
-              className="profile__avatar"
-            />
+            {photos()}
             <div className="profile__info">
               <div className="profile__nameid">{props.profile.userId}</div>
             </div>
