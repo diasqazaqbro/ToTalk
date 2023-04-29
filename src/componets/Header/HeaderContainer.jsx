@@ -6,7 +6,7 @@ import { setUserData } from "../../redux/authReducer";
 
 class HeaderContainer extends React.Component {
   componentDidMount() {
-    debugger
+    
     getAuth().then((response) => {
       if (response.data.resultCode === 0) {
         

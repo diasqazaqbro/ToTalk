@@ -1,4 +1,5 @@
 import React from "react";
+import ProfileStatus from "./ProfileStatus";
 import PostsItem from "./PostsItem";
 const ProfileWall = (props) => {
   let postsElement = props.posts.map((p) => <PostsItem message={p.message} />);
@@ -11,13 +12,13 @@ const ProfileWall = (props) => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
   };
+  debugger
+
   return (
     <div className="profile__wall">
       <div className="profile__stat">
         <div className="profile__name">{props.profileInfo.fullName}</div>
-        <div className="profile__status">
-          WebDeveloper/FrontEnd/BackEnd/React
-        </div>
+        <ProfileStatus status={props.profileInfo.aboutMe} />
       </div>
       <div className="profile__area">
         <textarea
