@@ -1,4 +1,3 @@
-//         <ProfileStatus status={props.profileInfo.aboutMe} />
 import { Col, Row, Button } from "antd";
 import {
   FacebookFilled,

@@ -21,13 +21,14 @@ const Profile = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
+
   return (
     <div className="profile">
       <Row>
-        <Col span={8}> {photos()}</Col>
+        <Col span={8}>{photos()}</Col>
         <Col span={16}>
           <div className="profile__name">{props.profile.fullName}</div>
-          <ProfileStatus status={props.profile.aboutMe} />
+          <ProfileStatus putStatus={props.putStatus} status={props.status} />
         </Col>
       </Row>
       <ProfileWallContainer props={props.profile} />
