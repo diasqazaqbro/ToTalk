@@ -1,17 +1,9 @@
 import { Col, Row, Button } from "antd";
-import {
-  FacebookFilled,
-  ChromeFilled,
-  BehanceSquareFilled,
-  TwitterSquareFilled,
-  InstagramFilled,
-  YoutubeFilled,
-  GithubFilled,
-  ScheduleFilled,
-} from "@ant-design/icons";
+
 import React from "react";
 
 import PostsItem from "./PostsItem";
+import ProfileLink from "./ProfileLink";
 
 const ProfileWall = (props) => {
   let postsElement = props.posts.map((p) => (
@@ -30,48 +22,7 @@ const ProfileWall = (props) => {
 
   return (
     <Row>
-      <Col span={8}>
-        <div className="profile__link">
-          <FacebookFilled style={{ fontSize: "25px" }} />
-          <span> Facebook:</span>
-          <span>{props.profileInfo.contacts.facebook} </span>
-        </div>
-        <div className="profile__link">
-          <ChromeFilled style={{ fontSize: "25px" }} />
-          <span> Chrome:</span>
-          <span>{props.profileInfo.contacts.website} </span>
-        </div>
-        <div className="profile__link">
-          <BehanceSquareFilled style={{ fontSize: "25px" }} />
-          <span> VK:</span>
-          <span>{props.profileInfo.contacts.vk} </span>
-        </div>
-        <div className="profile__link">
-          <TwitterSquareFilled style={{ fontSize: "25px" }} />
-          <span> Twitter:</span>
-          <span>{props.profileInfo.contacts.twitter} </span>
-        </div>
-        <div className="profile__link">
-          <InstagramFilled style={{ fontSize: "25px" }} />
-          <span> Instagram:</span>
-          <span>{props.profileInfo.contacts.instagram} </span>
-        </div>
-        <div className="profile__link">
-          <YoutubeFilled style={{ fontSize: "25px" }} />
-          <span> Youtube:</span>
-          <span>{props.profileInfo.contacts.youtube} </span>
-        </div>
-        <div className="profile__link">
-          <GithubFilled style={{ fontSize: "25px" }} />
-          <span> Github:</span>
-          <span>{props.profileInfo.contacts.github} </span>
-        </div>
-        <div className="profile__link">
-          <ScheduleFilled style={{fontSize: '25px'}} />
-          <span> ScheduleFilled</span>
-          <span>{props.profileInfo.contacts.mainLink} </span>
-        </div>
-      </Col>
+      <ProfileLink contacts={props.profileInfo.contacts} />
       <Col span={16}>
         <Row>
           <Col span={16}>

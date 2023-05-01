@@ -5,7 +5,7 @@ const Header = (props) => {
     <header className="header">
       <div className="container">
         <div className="header__header">
-          {/* <div className="header__logo">ToTalk</div> */}
+          <div className="header__logo">ToTalk</div>
           {props.isAuth ? (
             props.login
           ) : (

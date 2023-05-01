@@ -85,10 +85,10 @@ const App = () => {
           >
             <Routes>
               <Route path="/profile/:userId" element={<ProfileContainer />} />
-              <Route path="/profile" element={<ProfileContainer />} />
+              <Route exact path="/profile" element={<ProfileContainer />} />
               <Route path="/dialogs" element={<DialogsContainer />} />
               <Route path="/users" element={<UsersContainer />} />
-              <Route path="/login" element={<Login />} />
+              <Route exact path="/login" element={<Login />} />
             </Routes>
           </div>
         </Content>

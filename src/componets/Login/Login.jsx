@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
     return (
-        <div>Пошел нахуй</div>
+        <div>Login</div>
     )
 }
 export default Login
