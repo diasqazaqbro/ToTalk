@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import NavBar from "./componets/NavBar/NavBar";
 import UsersContainer from "./componets/Users/UsersContainer";
 import ProfileContainer from "./componets/Profile/ProfileContainer";
 import HeaderContainer from "./componets/Header/HeaderContainer";
@@ -17,7 +16,8 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
 import { useState } from "react";
-const { Content, Footer, Sider } = Layout;
+import FooterComponent from "./componets/Footer/FooterComponent";
+const { Content, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -36,8 +36,8 @@ const App = () => {
       getItem(<NavLink to="/friends">Друзья</NavLink>, "4"),
       getItem(<NavLink to="/notifiactions">Уведомления</NavLink>, "5"),
     ]),
-    getItem(<NavLink to="/users">Все пользователи</NavLink>, "6", <TeamOutlined />),
-    getItem('Разработчик', "7", <DeploymentUnitOutlined />),
+    getItem(<NavLink to="/users">Все пользователи</NavLink>, "9", <TeamOutlined />),
+    getItem('Разработчик', "9", <DeploymentUnitOutlined />),
   ];
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -92,13 +92,7 @@ const App = () => {
             </Routes>
           </div>
         </Content>
-        <Footer
-          style={{
-            textAlign: "center",
-          }}
-        >
-          ToTalk ©2023 Created by diasqazaqbro
-        </Footer>
+        <FooterComponent/>
       </Layout>
     </Layout>
   );

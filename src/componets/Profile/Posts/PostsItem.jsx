@@ -1,20 +1,25 @@
-import ava from '../../../content/ava.jpg'
-const PostsItem = (props) => {
-   return (
-      <div className="profile__post-item">
-         <div className="post__info">
-            <img src={ava} alt="" className="post__ava" />
-            <div className="post__stat">
-               <div className="post__name">Joji</div>
-               <div className="post__line">запостил пост 15 минут назад</div>
-               <div className="post__item">
-                  <p>{props.message}</p>
-               </div>
-            </div>
 
-         </div>
-      </div>
-   )
-}
+import { Avatar, Card} from 'antd';
+const { Meta } = Card;
+const PostItem = (props) => {
+  debugger
 
-export default PostsItem;
+  return (
+    <>
+      <Card
+        style={{
+          width: 500,
+          marginTop: 16,
+        }}
+      >
+        <Meta
+          avatar={<Avatar src={props.profile.photos.small} />}
+          title={props.profile.fullName}
+          description={props.message}
+        />
+      </Card>
+    </>
+  );
+ };
+ export default PostItem;
+
