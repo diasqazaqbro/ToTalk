@@ -1,43 +1,46 @@
 import { Col, Row, Button } from "antd";
-
+import { Field, reduxForm } from "redux-form";
 import React from "react";
-
 import PostsItem from "./PostsItem";
 import ProfileLink from "./ProfileLink";
+
+const PostForm = (props) => {
+  return (
+    <Row>
+      <form onSubmit={props.handleSubmit}>
+        <Col span={16}>
+          <Field
+            component={"textarea"}
+            placeholder="Что у вас нового?"
+            name={"postBody"}
+          />
+        </Col>
+        <Col span={8}>
+          <button>Отправить</button>
+        </Col>
+      </form>
+    </Row>
+  );
+};
+
+const PostReduxForm = reduxForm({ form: "posts" })(PostForm);
 
 const ProfileWall = (props) => {
   let postsElement = props.posts.map((p) => (
     <PostsItem profile={props.profileInfo} message={p.message} />
   ));
-  let newPostElement = React.createRef();
 
-  let onAddPost = () => {
-    props.onAddPost();
+  let onAddPost = (values) => {
+    props.onAddPost(values.postBody);
   };
-  let onPostChange = (e) => {
-    let text = newPostElement.current.value;
-    props.updateNewPostText(text);
-    console.log(e);
-  };
-
   return (
     <Row>
       <ProfileLink contacts={props.profileInfo.contacts} />
       <Col span={16}>
-        <Row>
-          <Col span={16}>
-            <textarea
-              value={props.newPost}
-              cols="30"
-              onChange={onPostChange}
-              placeholder="Что у вас нового?"
-              ref={newPostElement}
-            />
-          </Col>
-          <Col span={8}>
-            <Button onClick={onAddPost}>Отправить</Button>
-          </Col>
-        </Row>
+        <PostReduxForm
+          onSubmit={onAddPost}
+        />
+
         {postsElement}
       </Col>
     </Row>

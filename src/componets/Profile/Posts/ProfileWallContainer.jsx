@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { onAddPost, updateNewPostText } from "../../../redux/profileReducer";
+import { onAddPost } from "../../../redux/profileReducer";
 import ProfileWall from "./ProfileWall";
 
 const mapStateToProps = (state) => {
@@ -13,8 +13,7 @@ const mapStateToProps = (state) => {
 
 
 const ProfileWallContainer = connect(mapStateToProps, {
-  onAddPost,
-  updateNewPostText,
+  onAddPost
 })(ProfileWall);
 
 export default ProfileWallContainer;

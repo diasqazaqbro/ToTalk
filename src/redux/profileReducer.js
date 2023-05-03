@@ -1,12 +1,10 @@
 import { getProfile, getStatus, putStatus } from "../api/api.js";
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
 let initialState = {
   posts: [],
-  newPostText: "",
   profile: null,
   status: "",
 };
@@ -16,18 +14,13 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST: {
       let newPost = {
         id: 1,
-        message: state.newPostText,
+        message: action.postBody,
       };
       const stateCopy = { ...state };
       stateCopy.posts = [...state.posts];
       stateCopy.posts.push(newPost);
-      stateCopy.newPostText = "";
       return stateCopy;
     }
-    case UPDATE_NEW_POST_TEXT:
-      const stateCopy = { ...state };
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
     case SET_USER_PROFILE: {
       return { ...state, profile: action.profile };
     }
@@ -39,11 +32,8 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const onAddPost = () => ({ type: ADD_POST });
-export const updateNewPostText = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
-});
+export const onAddPost = (postBody) => ({ type: ADD_POST, postBody });
+
 export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile,
@@ -61,7 +51,7 @@ export const getProfileThunkCreator = (userId) => (dispatch) => {
 
 export const getStatusThunkCreator = (userId) => (dispatch) => {
   getStatus(userId).then((response) => {
-    debugger
+    debugger;
     dispatch(setStatus(response.data));
   });
 };
