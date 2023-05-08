@@ -1,16 +1,20 @@
-import { Col, Row, Button } from "antd";
+import { Col, Row } from "antd";
 import { Field, reduxForm } from "redux-form";
 import React from "react";
 import PostsItem from "./PostsItem";
 import ProfileLink from "./ProfileLink";
+import { maxLengthCreator, requiredField } from "../../../utils/validators";
+import Textarea from "../../UI/FormsControls/FormsControls";
 
+const maxLength10 = maxLengthCreator(10)
 const PostForm = (props) => {
   return (
     <Row>
       <form onSubmit={props.handleSubmit}>
         <Col span={16}>
           <Field
-            component={"textarea"}
+            validate={[requiredField, maxLength10]}
+            component={Textarea}
             placeholder="Что у вас нового?"
             name={"postBody"}
           />
@@ -37,10 +41,7 @@ const ProfileWall = (props) => {
     <Row>
       <ProfileLink contacts={props.profileInfo.contacts} />
       <Col span={16}>
-        <PostReduxForm
-          onSubmit={onAddPost}
-        />
-
+        <PostReduxForm onSubmit={onAddPost} />
         {postsElement}
       </Col>
     </Row>
