@@ -4,9 +4,9 @@ import React from "react";
 import PostsItem from "./PostsItem";
 import ProfileLink from "./ProfileLink";
 import { maxLengthCreator, requiredField } from "../../../utils/validators";
-import Textarea from "../../UI/FormsControls/FormsControls";
+import { Textarea } from "../../UI/FormsControls/FormsControls";
 
-const maxLength10 = maxLengthCreator(10)
+const maxLength10 = maxLengthCreator(10);
 const PostForm = (props) => {
   return (
     <Row>
