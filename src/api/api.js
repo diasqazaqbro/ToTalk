@@ -22,15 +22,22 @@ export const postFollow = (userId) => {
   return instance.post(`follow/` + userId);
 };
 
-export const getProfile = (userId) => {
-  return instance.get(`profile/` + userId);
-};
 export const getAuth = () => {
   return instance.get(`auth/me`);
 };
+
+export const login = (email, password, rememberMe = false) => {
+  return instance.post(`auth/login`, {email, password, rememberMe});
+};
+export const logout = (email, password, rememberMe = false) => {
+  return instance.delete(`auth/login`);
+};
+export const getProfile = (userId) => {
+  return instance.get(`profile/` + userId);
+};
 export const getStatus = (userId) => {
-  return instance.get(`profile/status/` + userId); 
+  return instance.get(`profile/status/` + userId);
 };
 export const putStatus = (status) => {
-  return instance.put(`profile/status`, {status: status}); 
+  return instance.put(`profile/status`, { status: status });
 };

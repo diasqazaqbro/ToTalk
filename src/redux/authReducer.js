@@ -34,5 +34,5 @@ export const getAuthThunkCreator = () => (dispatch) => {
   });
 };
 
-// export const loginThunkCreator = (email, password) => (dispatch) => {};
+export const loginThunkCreator = (email, password, rememberMe) => (dispatch) => {};
 export default authReducer;
