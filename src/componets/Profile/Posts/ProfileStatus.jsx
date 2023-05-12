@@ -1,55 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
-class ProfileStatus extends React.Component {
-  state = {
-    editMode: false,
-    status: this.props.status
+const ProfileStatus = (props) => {
+  let [editMode, setEditMode] = useState(false);
+  let [status, setStatus] = useState(props.status);
+  const activeMode = () => {
+    setEditMode(true);
   };
-  activeMode = () => {
-    this.setState({
-      editMode: true,
-    });
-  }
-  noActiveMode = () => {
-    this.setState({
-      editMode: false,
-    });
-    this.props.putStatus(this.state.status)
-  }
+  const noActiveMode = () => {
+    setEditMode(false);
+    props.putStatus(status);
+  };
+  const onStatusChange = (e) => {
+    setStatus(e.currentTarget.value);
+  };
+  return (
+    <div className="profile__status">
+      {!editMode && <span onDoubleClick={activeMode}>{status}</span>}
+      {editMode && (
+        <span>
+          <input
+            onChange={onStatusChange}
+            onBlur={noActiveMode}
+            autoFocus={true}
+            value={status}
+          />
+        </span>
+      )}
+    </div>
+  );
+};
 
-  onStatusChange = (e) => {
-    this.setState({
-      status: e.currentTarget.value
-    })
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.status !== this.props.status) {
-      this.setState({
-        status: this.props.status
-      })
-    }
-  }
-  render() {
-    return (
-      <div className="profile__status">
-        {!this.state.editMode && (
-          <span onDoubleClick={this.activeMode}>
-            {this.state.status}
-          </span>
-        )}
-        {this.state.editMode && (
-          <span>
-            <input
-            onChange={this.onStatusChange}
-              onBlur={this.noActiveMode}
-              autoFocus={true}
-              value={this.state.status}
-            />
-          </span>
-        )}
-      </div>
-    );
-  }q
-}
+//   componentDidUpdate(prevProps, prevState) {
+//     if (prevProps.status !== this.props.status) {
+//       this.setState({
+//         status: this.props.status
+//       })
+//     }
+//   }
+
 
 export default ProfileStatus;
