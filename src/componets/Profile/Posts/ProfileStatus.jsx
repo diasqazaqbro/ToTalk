@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ProfileStatus = (props) => {
   let [editMode, setEditMode] = useState(false);
   let [status, setStatus] = useState(props.status);
+
+  useEffect(() => {
+    setStatus(props.status)
+  }, [props.status]);
   const activeMode = () => {
     setEditMode(true);
   };
@@ -15,7 +19,7 @@ const ProfileStatus = (props) => {
   };
   return (
     <div className="profile__status">
-      {!editMode && <span onDoubleClick={activeMode}>{status}</span>}
+      {!editMode && <span onDoubleClick={activeMode}>{status || "-----"}</span>}
       {editMode && (
         <span>
           <input
@@ -37,6 +41,5 @@ const ProfileStatus = (props) => {
 //       })
 //     }
 //   }
-
 
 export default ProfileStatus;
