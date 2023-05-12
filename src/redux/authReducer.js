@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { getAuth, login, logout } from "../api/api";
 const SET_USER_DATA = "SET_USER_DATA";
 
@@ -33,18 +34,22 @@ export const getAuthThunkCreator = () => (dispatch) => {
   });
 };
 
-export const loginThunkCreator = (email, password, rememberMe) => (dispatch) => {
-  login(email, password, rememberMe).then(response => {
-    if (response.data.resultCode === 0) {
-      dispatch(getAuthThunkCreator())
-    }
-  })
-};
+export const loginThunkCreator =
+  (email, password, rememberMe) => (dispatch) => {
+    login(email, password, rememberMe).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(getAuthThunkCreator());
+      } else {
+        let message = response.data.messages.length > 0 ? response.data.messages[0] : 'some error' 
+        dispatch(stopSubmit("login", { _error: message }));
+      }
+    });
+  };
 export const logoutThunkCreator = () => (dispatch) => {
-  logout().then(response => {
+  logout().then((response) => {
     if (response.data.resultCode === 0) {
-      dispatch(setUserData(null, null, null, false))
+      dispatch(setUserData(null, null, null, false));
     }
-  })
+  });
 };
 export default authReducer;

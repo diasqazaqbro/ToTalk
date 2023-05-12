@@ -22,6 +22,7 @@ const LoginForm = (props) => {
       />
       <Field component={"input"} type={"checkbox"} name={"rememberMe"} />
       <button>Submit</button>
+      {props.error && <div>{props.error}</div> }
     </form>
   );
 };
@@ -38,7 +39,9 @@ const Login = (props) => {
   if (props.isAuth) {
     return <Navigate to={'/profile'}/>
   }
-  return <LoginReduxForm onSubmit={onSubmit} />;
+  return <div>
+    <LoginReduxForm onSubmit={onSubmit} />;
+  </div>
 };
 
 const mapStateToProps = (state) => ({
