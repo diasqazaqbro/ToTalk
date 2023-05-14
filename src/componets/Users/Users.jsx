@@ -1,32 +1,21 @@
 import React from "react";
 import s from "./Users.module.css";
 import { NavLink } from "react-router-dom";
-
+import Paginator from "../UI/Paginator/Paginator";
 const Users = (props) => {
-  let pagesCount = Math.ceil(props.totalCount / props.pageSize);
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
-
+  debugger
   return (
     <div className={s.main}>
       <div className={s.count}>
         Все пользователи: <span className={s.counter}>{props.totalCount}</span>
       </div>
       <div className={s.pages}>
-        {pages.map((p) => {
-          return (
-            <span
-              onClick={() => {
-                props.onPageChanged(p);
-              }}
-              className={props.currentPage === p && s.selectedPage}
-            >
-              {p}
-            </span>
-          );
-        })}
+        <Paginator
+          currentPage={props.currentPage}
+          onPageChanged={props.onPageChanged}
+          totalItemsCount={props.totalCount}
+          pageSize={props.pageSize}
+        />
       </div>
       <div className={s.list}>
         {props.users.map((u) => (
