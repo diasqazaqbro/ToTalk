@@ -5,17 +5,30 @@ import "./profile.sass";
 import { Col, Row, Image } from "antd";
 
 const Profile = (props) => {
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhotoThunkCreator(e.target.files[0])
+    }
+  }
   const photos = () => {
     if (props.profile.photos.large === null) {
       return (
-        <Image
-          src={
-            "https://avatars.mds.yandex.net/i?id=b0880d8a436d0fa42f04aca0768dfd35-5372116-images-thumbs&n=13"
-          }
-        />
+        <div>
+          <Image
+            src={
+              "https://avatars.mds.yandex.net/i?id=b0880d8a436d0fa42f04aca0768dfd35-5372116-images-thumbs&n=13"
+            }
+          />
+          {props.isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
+        </div>
       );
     } else {
-      return <Image width={350} src={props.profile.photos.large} />;
+      return (
+        <di v>
+          <Image width={350} src={props.profile.photos.large} />
+          {props.isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
+        </di>
+      );
     }
   };
   if (!props.profile) {

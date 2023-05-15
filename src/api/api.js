@@ -27,7 +27,7 @@ export const getAuth = () => {
 };
 
 export const login = (email, password, rememberMe = false) => {
-  return instance.post(`auth/login`, {email, password, rememberMe});
+  return instance.post(`auth/login`, { email, password, rememberMe });
 };
 export const logout = (email, password, rememberMe = false) => {
   return instance.delete(`auth/login`);
@@ -40,4 +40,13 @@ export const getStatus = (userId) => {
 };
 export const putStatus = (status) => {
   return instance.put(`profile/status`, { status: status });
+};
+export const putPhoto = (photoFile) => {
+  let formData = new FormData();
+  formData.append("image", photoFile);
+  return instance.put(`profile/photo`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };

@@ -6,27 +6,39 @@ import {
   getProfileThunkCreator,
   getStatusThunkCreator,
   putStatusThunkCreator,
+  savePhotoThunkCreator
 } from "../../redux/profileReducer";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 class ProfileContainer extends React.Component {
-  componentDidMount() {
+  refreshProfile() {
     let userId = this.props.router.params.userId;
     if (!userId) {
       userId = this.props.userId;
       if (!userId) {
-        this.props.history.push('/login')
+        this.props.history.push("/login");
       }
     }
     this.props.getProfileThunkCreator(userId);
     this.props.getStatusThunkCreator(userId);
   }
+  componentDidMount() {
+    this.refreshProfile();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.router.params.userId !== prevProps.router.params.userId) {
+      this.refreshProfile();
+    }
+  }
   render() {
     return (
       <Profile
+        isOwner={!this.props.router.params.userId}
         {...this.props}
         status={this.props.status}
         putStatus={this.props.putStatusThunkCreator}
+        savePhotoThunkCreator={this.props.savePhotoThunkCreator}
       />
     );
   }
@@ -55,6 +67,7 @@ export default compose(
     getProfileThunkCreator,
     getStatusThunkCreator,
     putStatusThunkCreator,
+    savePhotoThunkCreator
   }),
   withAuthRedirect
 )(withRouter(ProfileContainer));

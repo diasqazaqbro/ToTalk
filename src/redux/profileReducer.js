@@ -1,7 +1,8 @@
-import { getProfile, getStatus, putStatus } from "../api/api.js";
+import { getProfile, getStatus, putStatus, putPhoto } from "../api/api.js";
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
+const SAVE_PHOTO = "SAVE_PHOTO";
 
 let initialState = {
   posts: [],
@@ -27,6 +28,9 @@ const profileReducer = (state = initialState, action) => {
     case SET_STATUS: {
       return { ...state, status: action.status };
     }
+    case SAVE_PHOTO: {
+      return { ...state, profile: {...state.profile, photos: action.photos} };
+    }
     default:
       return state;
   }
@@ -41,6 +45,10 @@ export const setUserProfile = (profile) => ({
 export const setStatus = (status) => ({
   type: SET_STATUS,
   status,
+});
+export const savePhotoSucces = (photos) => ({
+  type: SAVE_PHOTO,
+  photos,
 });
 
 export const getProfileThunkCreator = (userId) => (dispatch) => {
@@ -59,6 +67,13 @@ export const putStatusThunkCreator = (status) => (dispatch) => {
   putStatus(status).then((response) => {
     if (response.data.resultCode === 0) {
       dispatch(setStatus(status));
+    }
+  });
+};
+export const savePhotoThunkCreator = (file) => (dispatch) => {
+  putPhoto(file).then((response) => {
+    if (response.data.resultCode === 0) {
+      dispatch(savePhotoSucces(response.data.data.photos));
     }
   });
 };
