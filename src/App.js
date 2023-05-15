@@ -29,7 +29,6 @@ function getItem(label, key, icon, children) {
     label,
   };
 }
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -68,7 +67,6 @@ class App extends React.Component {
       >
         <Sider
           collapsible
-          collapsed={this.state.collapsed}
           onCollapse={(value) => this.setState(value)}
         >
           <div
