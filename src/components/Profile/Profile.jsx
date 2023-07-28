@@ -1,5 +1,6 @@
 import { Col, Image, Row } from 'antd'
 import Preloader from '../UI/Preloader/Preloader'
+import Edit from './Edit'
 import ProfileStatus from './Posts/ProfileStatus'
 import ProfileWallContainer from './Posts/ProfileWallContainer'
 import './profile.sass'
@@ -49,15 +50,7 @@ const Profile = props => {
 						<div className='job'>Looking job</div>
 						<div className='desc'>Description</div>
 						{props.isOwner && (
-							<div className='edit'>
-								{/* <input
-									className='edit__photo'
-									type='file'
-									onChange={onMainPhotoSelected}
-								/> */}
-								<button>Edit Profile</button>
-								<button>Edit Photo</button>
-							</div>
+							<Edit onMainPhotoSelected={onMainPhotoSelected} />
 						)}
 					</Col>
 				</Row>

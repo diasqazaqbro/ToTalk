@@ -1,7 +1,10 @@
 import { Col, Row } from 'antd'
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { maxLengthCreator, requiredField } from '../../../utils/validators'
+import {
+	maxLengthCreator,
+	required,
+} from '../../../utils/validators/validators'
 import { Textarea } from '../../UI/FormsControls/FormsControls'
 import PostsItem from './PostsItem'
 import ProfileLink from './ProfileLink'
@@ -13,7 +16,7 @@ const PostForm = props => {
 			<form onSubmit={props.handleSubmit}>
 				<Col span={16}>
 					<Field
-						validate={[requiredField, maxLength10]}
+						validate={[required, maxLength10]}
 						component={Textarea}
 						placeholder='Что у вас нового?'
 						name={'postBody'}

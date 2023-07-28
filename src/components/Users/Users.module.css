@@ -1,0 +1,62 @@
+.list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.name {
+	font-family: 'Comfortaa';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 27px;
+}
+
+.status {
+	font-family: 'Comfortaa';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.item {
+	background: #ffffff;
+	box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.25);
+	width: 40%;
+	margin: 10px 0;
+	margin-right: 20px;
+	padding: 20px;
+}
+.img {
+	width: 75px;
+	height: 75px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.card {
+	display: flex;
+}
+
+.count {
+	font-family: 'Comfortaa';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 33px;
+}
+
+.counter {
+	font-family: 'Comfortaa';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 33px;
+
+	color: #4e6e9d;
+}
+
+.selectedPage {
+	font-weight: bold;
+	color: rgb(255, 0, 102);
+}
