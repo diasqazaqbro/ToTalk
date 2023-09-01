@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/ToTalk/static/css/main.f6122b6b.css",
-    "main.js": "/ToTalk/static/js/main.0a57d03d.js",
+    "main.css": "/ToTalk/static/css/main.04621c9b.css",
+    "main.js": "/ToTalk/static/js/main.6c74b56d.js",
     "static/js/496.47429c25.chunk.js": "/ToTalk/static/js/496.47429c25.chunk.js",
     "static/media/preloader.gif": "/ToTalk/static/media/preloader.e55a1721e7a1c21a0a8d.gif",
     "index.html": "/ToTalk/index.html",
-    "main.f6122b6b.css.map": "/ToTalk/static/css/main.f6122b6b.css.map",
-    "main.0a57d03d.js.map": "/ToTalk/static/js/main.0a57d03d.js.map",
+    "main.04621c9b.css.map": "/ToTalk/static/css/main.04621c9b.css.map",
+    "main.6c74b56d.js.map": "/ToTalk/static/js/main.6c74b56d.js.map",
     "496.47429c25.chunk.js.map": "/ToTalk/static/js/496.47429c25.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6122b6b.css",
-    "static/js/main.0a57d03d.js"
+    "static/css/main.04621c9b.css",
+    "static/js/main.6c74b56d.js"
   ]
 }
