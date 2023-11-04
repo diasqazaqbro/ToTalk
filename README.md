@@ -16,7 +16,7 @@ Live version is available [here](https://diasqazaqbro.github.io/ToTalk/).
 Open Terminal and run:
 
 ````bash
-git clone https://github.com/m4l3vich/vue-sudoku
+git clone https://github.com/diasqazaqbro/ToTalk
 ````
 
 This will copy the repository into the local folder. Then go to the repository's folder:
