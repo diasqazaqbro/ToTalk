@@ -1,4 +1,4 @@
-# TotALK
+# ToTalk
 
 Social Network with Open Source
 
